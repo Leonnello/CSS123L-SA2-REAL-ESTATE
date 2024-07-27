@@ -40,7 +40,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1496" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="1518" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -86,8 +86,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="MainManagementPane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="ManagementTablePane" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ManagementTablePane" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="LotInfoPanel" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -102,6 +104,11 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="LotInfoPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -112,8 +119,8 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" pref="1211" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="1002" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -204,14 +211,14 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jButton2" max="32767" attributes="0"/>
+                                      <Component id="ReserveButton" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="AddLotButton" min="-2" pref="92" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="EditLotButton" min="-2" pref="92" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jButton7" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="SoldButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ForSaleButton" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -230,11 +237,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="DeleteLotButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="ReserveButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                          <Component id="SoldButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                          <Component id="ForSaleButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel1" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -243,10 +250,13 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="ReserveButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mark as Reserved"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReserveButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel1">
 
@@ -398,14 +408,113 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteLotButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton3">
+                <Component class="javax.swing.JButton" name="SoldButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mark as Sold"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton7">
+                <Component class="javax.swing.JButton" name="ForSaleButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mark for Sale"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="LotInfoPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotNumberField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="blockNumberField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotSizeField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotPriceField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotStatusField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="SaleStartDateField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="LotBuyerField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="LotReserveeField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="116" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="66" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lotNumberField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="blockNumberField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lotSizeField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lotPriceField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lotStatusField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="SaleStartDateField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="LotBuyerField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="LotReserveeField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="157" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="48" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Info"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lotNumberField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Lot Number:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="blockNumberField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Block Number:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lotSizeField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Lot Size: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lotPriceField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Lot Price:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lotStatusField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Lot Status: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="SaleStartDateField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sale Start Date: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="LotBuyerField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Lot Buyer: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="LotReserveeField">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Lot Reservee: "/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -429,7 +538,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="1201" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="1223" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>

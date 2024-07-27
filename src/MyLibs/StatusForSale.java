@@ -1,4 +1,5 @@
 package MyLibs;
+import java.util.Date;
 
 public class StatusForSale implements Status {
     private Date startSaleDate;

@@ -1,4 +1,5 @@
 package MyLibs;
+import java.util.Date;
 
 public class StatusPurchased implements Status {
     private String purchaserName;
