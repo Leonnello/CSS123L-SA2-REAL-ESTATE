@@ -668,7 +668,7 @@ private void openStatusSpecificFrame(Lot lotObject) {
             }
         });
 
-    } else if (status.equals("Sold")) {
+    } else if (status.equals("Purchased")) {
         JLabel purchaserNameLabel = new JLabel("Purchaser Name:");
         JTextField purchaserNameField = new JTextField();
         JLabel purchaseDateLabel = new JLabel("Purchase Date: (yyyy-MM-dd)");
@@ -853,7 +853,7 @@ private void openStatusSpecificFrame(Lot lotObject) {
     }//GEN-LAST:event_EditLotButtonActionPerformed
 
     private void ReserveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ReserveButtonActionPerformed
 
     private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {                                                                               
