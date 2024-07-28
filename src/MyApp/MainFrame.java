@@ -82,14 +82,15 @@ public class MainFrame extends javax.swing.JFrame {
         ForSaleButton = new javax.swing.JButton();
         LotInfoPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        lotNumberField = new javax.swing.JLabel();
-        blockNumberField = new javax.swing.JLabel();
-        lotSizeField = new javax.swing.JLabel();
-        lotPriceField = new javax.swing.JLabel();
-        lotStatusField = new javax.swing.JLabel();
-        SaleStartDateField = new javax.swing.JLabel();
-        LotBuyerField = new javax.swing.JLabel();
-        LotReserveeField = new javax.swing.JLabel();
+        lotNumberInfo = new javax.swing.JLabel();
+        blockNumberInfo = new javax.swing.JLabel();
+        lotSizeInfo = new javax.swing.JLabel();
+        lotPriceInfo = new javax.swing.JLabel();
+        lotStatusInfo = new javax.swing.JLabel();
+        SaleStartDateInfo = new javax.swing.JLabel();
+        lotBuyerInfo = new javax.swing.JLabel();
+        lotReservedInfo = new javax.swing.JLabel();
+        lotPurchaseDateInfo = new javax.swing.JLabel();
         ReportPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ReportTable = new javax.swing.JTable();
@@ -264,8 +265,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         SoldButton.setText("Mark as Sold");
+        SoldButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SoldButtonActionPerformed(evt);
+            }
+        });
 
         ForSaleButton.setText("Mark for Sale");
+        ForSaleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ForSaleButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MainManagementPaneLayout = new javax.swing.GroupLayout(MainManagementPane);
         MainManagementPane.setLayout(MainManagementPaneLayout);
@@ -315,21 +326,23 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel4.setText("Info");
 
-        lotNumberField.setText("Lot Number:");
+        lotNumberInfo.setText("Lot Number:");
 
-        blockNumberField.setText("Block Number:");
+        blockNumberInfo.setText("Block Number:");
 
-        lotSizeField.setText("Lot Size: ");
+        lotSizeInfo.setText("Lot Size: ");
 
-        lotPriceField.setText("Lot Price:");
+        lotPriceInfo.setText("Lot Price:");
 
-        lotStatusField.setText("Lot Status: ");
+        lotStatusInfo.setText("Lot Status: ");
 
-        SaleStartDateField.setText("Sale Start Date: ");
+        SaleStartDateInfo.setText("Sale Start Date: ");
 
-        LotBuyerField.setText("Lot Buyer: ");
+        lotBuyerInfo.setText("Lot Buyer: ");
 
-        LotReserveeField.setText("Lot Reservee: ");
+        lotReservedInfo.setText("Lot Reservee: ");
+
+        lotPurchaseDateInfo.setText("Purchase Date: ");
 
         javax.swing.GroupLayout LotInfoPanelLayout = new javax.swing.GroupLayout(LotInfoPanel);
         LotInfoPanel.setLayout(LotInfoPanelLayout);
@@ -339,14 +352,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(LotInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(lotNumberField)
-                    .addComponent(blockNumberField)
-                    .addComponent(lotSizeField)
-                    .addComponent(lotPriceField)
-                    .addComponent(lotStatusField)
-                    .addComponent(SaleStartDateField)
-                    .addComponent(LotBuyerField)
-                    .addComponent(LotReserveeField))
+                    .addComponent(lotNumberInfo)
+                    .addComponent(blockNumberInfo)
+                    .addComponent(lotSizeInfo)
+                    .addComponent(lotPriceInfo)
+                    .addComponent(lotStatusInfo)
+                    .addComponent(SaleStartDateInfo)
+                    .addComponent(lotBuyerInfo)
+                    .addComponent(lotReservedInfo)
+                    .addComponent(lotPurchaseDateInfo))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
         LotInfoPanelLayout.setVerticalGroup(
@@ -355,22 +369,24 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lotNumberField)
+                .addComponent(lotNumberInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(blockNumberField)
+                .addComponent(blockNumberInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lotSizeField)
+                .addComponent(lotSizeInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lotPriceField)
+                .addComponent(lotPriceInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lotStatusField)
+                .addComponent(lotStatusInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SaleStartDateField)
+                .addComponent(SaleStartDateInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LotBuyerField)
+                .addComponent(lotBuyerInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LotReserveeField)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addComponent(lotPurchaseDateInfo)
+                .addGap(2, 2, 2)
+                .addComponent(lotReservedInfo)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -580,7 +596,7 @@ private void AddLotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     lotObject.setLotPrice(parsedLotPrice);
                     lotObject.setLotStatus(parsedLotStatus);
                     
-                    openStatusSpecificFrame(lotObject);
+                    openStatusSpecificDialog(lotObject);
 
                     if (!blockNum.checkDuplicateLot(lotObject)) {
                         JOptionPane.showMessageDialog(addLotFrame, "Duplicate lot. Enter another lot number.");
@@ -607,31 +623,27 @@ private void AddLotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
 
 
-private void openStatusSpecificFrame(Lot lotObject) {
+private void openStatusSpecificDialog(Lot lotObject) {
     String status = lotObject.getLotStatus().toString();
+    JDialog statusDialog = new JDialog((Frame) null, "Enter Additional Information", true);
+    statusDialog.setSize(400, 200);
+    statusDialog.setLayout(new GridLayout(3, 2));
 
-    JFrame statusFrame = new JFrame("Enter Additional Information");
-    statusFrame.setSize(400, 200);
-    statusFrame.setLayout(new GridLayout(3, 2));
-    
     if (status.equals("For Sale")) {
         JLabel startSaleDateLabel = new JLabel("Start Sale Date: (yyyy-MM-dd)");
         JTextField startSaleDateField = new JTextField();
-        statusFrame.add(startSaleDateLabel);
-        statusFrame.add(startSaleDateField);
-        
+        statusDialog.add(startSaleDateLabel);
+        statusDialog.add(startSaleDateField);
+
         JButton submitButton = new JButton("Submit");
-        statusFrame.add(submitButton);
-        
+        statusDialog.add(submitButton);
+
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     Date startSaleDate = new SimpleDateFormat("yyyy-MM-dd").parse(startSaleDateField.getText());
                     ((StatusForSale) lotObject.getLotStatus()).setStartSaleDate(startSaleDate);
-                    
-                    // Close the status frame after submission
-                    statusFrame.dispose();
-            
+                    statusDialog.dispose();
                 } catch (ParseException e) {
                     System.out.println("Error:" + e);
                 }
@@ -643,15 +655,15 @@ private void openStatusSpecificFrame(Lot lotObject) {
         JTextField reserveeNameField = new JTextField();
         JLabel reserveDateLabel = new JLabel("Reserve Date: (yyyy-MM-dd)");
         JTextField reserveDateField = new JTextField();
-        
-        statusFrame.add(reserveeNameLabel);
-        statusFrame.add(reserveeNameField);
-        statusFrame.add(reserveDateLabel);
-        statusFrame.add(reserveDateField);
-        
+
+        statusDialog.add(reserveeNameLabel);
+        statusDialog.add(reserveeNameField);
+        statusDialog.add(reserveDateLabel);
+        statusDialog.add(reserveDateField);
+
         JButton submitButton = new JButton("Submit");
-        statusFrame.add(submitButton);
-        
+        statusDialog.add(submitButton);
+
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
@@ -659,9 +671,7 @@ private void openStatusSpecificFrame(Lot lotObject) {
                     Date reserveDate = new SimpleDateFormat("yyyy-MM-dd").parse(reserveDateField.getText());
                     ((StatusReserved) lotObject.getLotStatus()).setReserveeName(reserveeName);
                     ((StatusReserved) lotObject.getLotStatus()).setReserveDate(reserveDate);
-                    
-                    // Close the status frame after submission
-                    statusFrame.dispose();
+                    statusDialog.dispose();
                 } catch (ParseException e) {
                     System.out.println("Error:" + e);
                 }
@@ -673,15 +683,15 @@ private void openStatusSpecificFrame(Lot lotObject) {
         JTextField purchaserNameField = new JTextField();
         JLabel purchaseDateLabel = new JLabel("Purchase Date: (yyyy-MM-dd)");
         JTextField purchaseDateField = new JTextField();
-        
-        statusFrame.add(purchaserNameLabel);
-        statusFrame.add(purchaserNameField);
-        statusFrame.add(purchaseDateLabel);
-        statusFrame.add(purchaseDateField);
-        
+
+        statusDialog.add(purchaserNameLabel);
+        statusDialog.add(purchaserNameField);
+        statusDialog.add(purchaseDateLabel);
+        statusDialog.add(purchaseDateField);
+
         JButton submitButton = new JButton("Submit");
-        statusFrame.add(submitButton);
-        
+        statusDialog.add(submitButton);
+
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
@@ -689,9 +699,7 @@ private void openStatusSpecificFrame(Lot lotObject) {
                     Date purchaseDate = new SimpleDateFormat("yyyy-MM-dd").parse(purchaseDateField.getText());
                     ((StatusPurchased) lotObject.getLotStatus()).setPurchaserName(purchaserName);
                     ((StatusPurchased) lotObject.getLotStatus()).setPurchaseDate(purchaseDate);
-                    
-                    // Close the status frame after submission
-                    statusFrame.dispose();
+                    statusDialog.dispose();
                 } catch (ParseException e) {
                     System.out.println("Error:" + e);
                 }
@@ -699,8 +707,9 @@ private void openStatusSpecificFrame(Lot lotObject) {
         });
     }
 
-    statusFrame.setVisible(true);
+    statusDialog.setVisible(true);
 }
+
 
     // TO-DO: CONFIRMATION MESSAGE BEFORE DELETING
     private void DeleteLotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteLotButtonActionPerformed
@@ -824,7 +833,7 @@ private void openStatusSpecificFrame(Lot lotObject) {
                                 lot.setLotSize(parsedLotSize);
                                 lot.setLotPrice(parsedLotPrice);
                                 lot.setLotStatus(parsedLotStatus);
-                                openStatusSpecificFrame(lot);
+                                openStatusSpecificDialog(lot);
                             }
 
                         }
@@ -853,8 +862,67 @@ private void openStatusSpecificFrame(Lot lotObject) {
     }//GEN-LAST:event_EditLotButtonActionPerformed
 
     private void ReserveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveButtonActionPerformed
-        
+        int lotRow = LotTable.getSelectedRow();
+        if (lotRow == -1) {
+            // No row is selected
+            JOptionPane.showMessageDialog(null, "Please select a lot to delete.");
+            return;
+        }
+        String lotNumber = (String) LotTable.getValueAt(lotRow, 0);
+        Block blockNumber = (Block) LotTable.getValueAt(lotRow, 1);
+
+        for (Lot lot : blockNumber.getLots()) {
+            if (lotNumber.equals(lot.getLotNumber())) {
+                Status reservedStatus = new StatusReserved();
+                lot.setLotStatus(reservedStatus);
+                openStatusSpecificDialog(lot);
+            }
+        }
+        updateDetailsOnSelection();
+
     }//GEN-LAST:event_ReserveButtonActionPerformed
+
+    private void SoldButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SoldButtonActionPerformed
+        int lotRow = LotTable.getSelectedRow();
+        if (lotRow == -1) {
+            // No row is selected
+            JOptionPane.showMessageDialog(null, "Please select a lot to delete.");
+            return;
+        }
+        String lotNumber = (String) LotTable.getValueAt(lotRow, 0);
+        Block blockNumber = (Block) LotTable.getValueAt(lotRow, 1);
+
+        for (Lot lot : blockNumber.getLots()) {
+            if (lotNumber.equals(lot.getLotNumber())) {
+                Status reservedStatus = new StatusPurchased();
+                lot.setLotStatus(reservedStatus);
+                openStatusSpecificDialog(lot);
+            }
+        }
+
+        updateDetailsOnSelection();
+    }//GEN-LAST:event_SoldButtonActionPerformed
+
+    private void ForSaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForSaleButtonActionPerformed
+        int lotRow = LotTable.getSelectedRow();
+        if (lotRow == -1) {
+            // No row is selected
+            JOptionPane.showMessageDialog(null, "Please select a lot to delete.");
+            return;
+        }
+        String lotNumber = (String) LotTable.getValueAt(lotRow, 0);
+        Block blockNumber = (Block) LotTable.getValueAt(lotRow, 1);
+
+        for (Lot lot : blockNumber.getLots()) {
+            if (lotNumber.equals(lot.getLotNumber())) {
+                Status reservedStatus = new StatusForSale();
+                lot.setLotStatus(reservedStatus);
+                openStatusSpecificDialog(lot);
+            }
+        }
+
+        updateDetailsOnSelection();
+    }//GEN-LAST:event_ForSaleButtonActionPerformed
 
     private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {                                                                               
             JTabbedPane pane = (JTabbedPane) evt.getSource();
@@ -940,9 +1008,7 @@ private void openStatusSpecificFrame(Lot lotObject) {
     private javax.swing.JButton DeleteLotButton;
     private javax.swing.JButton EditLotButton;
     private javax.swing.JButton ForSaleButton;
-    private javax.swing.JLabel LotBuyerField;
     private javax.swing.JPanel LotInfoPanel;
-    private javax.swing.JLabel LotReserveeField;
     private javax.swing.JTable LotTable;
     private javax.swing.JPanel MainManagementPane;
     private javax.swing.JPanel ManagementSearchPane;
@@ -950,14 +1016,14 @@ private void openStatusSpecificFrame(Lot lotObject) {
     private javax.swing.JPanel ReportPanel;
     private javax.swing.JTable ReportTable;
     private javax.swing.JButton ReserveButton;
-    private javax.swing.JLabel SaleStartDateField;
+    private javax.swing.JLabel SaleStartDateInfo;
     private javax.swing.JButton SoldButton;
     private javax.swing.JLabel block1Lots;
     private javax.swing.JLabel block2Lots;
     private javax.swing.JLabel block3Lots;
     private javax.swing.JLabel block4Lots;
     private javax.swing.JLabel block5Lots;
-    private javax.swing.JLabel blockNumberField;
+    private javax.swing.JLabel blockNumberInfo;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -975,10 +1041,13 @@ private void openStatusSpecificFrame(Lot lotObject) {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JLabel lotNumberField;
-    private javax.swing.JLabel lotPriceField;
-    private javax.swing.JLabel lotSizeField;
-    private javax.swing.JLabel lotStatusField;
+    private javax.swing.JLabel lotBuyerInfo;
+    private javax.swing.JLabel lotNumberInfo;
+    private javax.swing.JLabel lotPriceInfo;
+    private javax.swing.JLabel lotPurchaseDateInfo;
+    private javax.swing.JLabel lotReservedInfo;
+    private javax.swing.JLabel lotSizeInfo;
+    private javax.swing.JLabel lotStatusInfo;
     private javax.swing.JLabel numBlocks;
     private javax.swing.JLabel numBlocksReport;
     private javax.swing.JLabel numTotalLots;
@@ -1000,12 +1069,6 @@ private void openStatusSpecificFrame(Lot lotObject) {
 
     // info not working yet
     private void customInitComponents() {
-    lotNumberField = new JLabel();
-    blockNumberField = new JLabel();
-    lotSizeField = new JLabel();
-    lotPriceField = new JLabel();
-    lotStatusField = new JLabel();
-
     LotTable.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             updateDetailsOnSelection();
@@ -1015,21 +1078,51 @@ private void openStatusSpecificFrame(Lot lotObject) {
 
 // Method to update details on selection
 private void updateDetailsOnSelection() {
+    
     int selectedRow = LotTable.getSelectedRow();
     if (selectedRow != -1) {
         // Get the values from the selected row
         String lotNumber = (String) LotTable.getValueAt(selectedRow, 0);
-        Block block = (Block) LotTable.getValueAt(selectedRow, 1); // Assuming Block is the correct type
+        Block block = (Block) LotTable.getValueAt(selectedRow, 1);
         double lotSize = (Double) LotTable.getValueAt(selectedRow, 2);
         double lotPrice = (Double) LotTable.getValueAt(selectedRow, 3);
-        Status lotStatus = (Status) LotTable.getValueAt(selectedRow, 4); // Assuming Status is the correct type
+
+        for (Lot lot : block.getLots()) {
+            if (lot.getLotNumber() == lotNumber) {
+                Status lotLocalStatus = lot.getLotStatus();
+                if (lotLocalStatus.toString().equals("For Sale")) {
+                    lotReservedInfo.setText("Lot Reservee: ");
+                    lotPurchaseDateInfo.setText("Purchase Date: ");
+                    lotBuyerInfo.setText("Lot Buyer: ");
+                    StatusForSale forSaleStatus = (StatusForSale) lotLocalStatus;
+                    lotStatusInfo.setText("Lot Status: " + forSaleStatus.toString());
+                    SaleStartDateInfo.setText("Sale Start Date: " + forSaleStatus.formatDate());
+                } else if (lotLocalStatus.toString().equals("Reserved")) {
+                    SaleStartDateInfo.setText("Sale Start Date: ");
+                    lotPurchaseDateInfo.setText("Purchase Date: ");
+                    lotBuyerInfo.setText("Lot Buyer: ");
+                    
+                    StatusReserved reservedStatus = (StatusReserved) lotLocalStatus;
+                    lotStatusInfo.setText("Lot Status: " + reservedStatus.toString());
+                    lotReservedInfo.setText("Lot Reservee: " + reservedStatus.getReserveeName());
+                } else {
+                    SaleStartDateInfo.setText("Sale Start Date: ");
+                    lotReservedInfo.setText("Lot Reservee: ");
+                    StatusPurchased purchasedStatus = (StatusPurchased) lotLocalStatus;
+                    lotStatusInfo.setText("Lot Status: " + purchasedStatus.toString());
+                    lotPurchaseDateInfo.setText("Purchase Date: " + purchasedStatus.formatDate());
+                    lotBuyerInfo.setText("Lot Buyer: " + purchasedStatus.getPurchaserName());
+                }
+            }
+        }
+
+        
 
         // Update the text fields with the selected row values
-        lotNumberField.setText("Lot Number: " + lotNumber);
-        blockNumberField.setText("Block Number: " + block.toString()); // Convert block to string representation
-        lotSizeField.setText("Lot Size: " + String.valueOf(lotSize));
-        lotPriceField.setText("Lot Price: " + String.valueOf(lotPrice));
-        lotStatusField.setText("Lot Status:" + lotStatus.toString()); // Convert status to string representation
+        lotNumberInfo.setText("Lot Number: " + lotNumber);
+        blockNumberInfo.setText("Block Number: " + block); // Convert block to string representation
+        lotSizeInfo.setText("Lot Size: " + String.valueOf(lotSize));
+        lotPriceInfo.setText("Lot Price: " + String.valueOf(lotPrice));
     }
 }
 

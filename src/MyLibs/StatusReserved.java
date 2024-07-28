@@ -1,4 +1,6 @@
 package MyLibs;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class StatusReserved implements Status {
@@ -16,6 +18,11 @@ public class StatusReserved implements Status {
     
     public Date getReserveDate() {
         return reserveDate;
+    }
+
+    public String formatDate() { 
+        DateFormat dateOutput = new SimpleDateFormat("yyyy-MM-dd");
+        return dateOutput.format(reserveDate);
     }
     
     public void setReserveDate(Date reserveDate) {

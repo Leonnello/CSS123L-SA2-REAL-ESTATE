@@ -1,4 +1,6 @@
 package MyLibs;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class StatusForSale implements Status {
@@ -8,6 +10,11 @@ public class StatusForSale implements Status {
 
     public Date getStartSaleDate() {
         return startSaleDate;
+    }
+
+    public String formatDate() { 
+        DateFormat dateOutput = new SimpleDateFormat("yyyy-MM-dd");
+        return dateOutput.format(startSaleDate);
     }
 
     public void setStartSaleDate(Date startSaleDate) {

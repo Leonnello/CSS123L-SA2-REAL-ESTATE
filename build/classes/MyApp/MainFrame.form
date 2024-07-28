@@ -412,11 +412,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mark as Sold"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SoldButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="ForSaleButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mark for Sale"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForSaleButtonActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -429,14 +435,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lotNumberField" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="blockNumberField" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lotSizeField" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lotPriceField" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lotStatusField" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="SaleStartDateField" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LotBuyerField" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LotReserveeField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotNumberInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="blockNumberInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotSizeInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotPriceInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotStatusInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="SaleStartDateInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotBuyerInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotReservedInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lotPurchaseDateInfo" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="116" max="32767" attributes="0"/>
                       </Group>
@@ -448,22 +455,24 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="66" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lotNumberField" min="-2" max="-2" attributes="0"/>
+                          <Component id="lotNumberInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="blockNumberField" min="-2" max="-2" attributes="0"/>
+                          <Component id="blockNumberInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lotSizeField" min="-2" max="-2" attributes="0"/>
+                          <Component id="lotSizeInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lotPriceField" min="-2" max="-2" attributes="0"/>
+                          <Component id="lotPriceInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lotStatusField" min="-2" max="-2" attributes="0"/>
+                          <Component id="lotStatusInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="SaleStartDateField" min="-2" max="-2" attributes="0"/>
+                          <Component id="SaleStartDateInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="LotBuyerField" min="-2" max="-2" attributes="0"/>
+                          <Component id="lotBuyerInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="LotReserveeField" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="157" max="32767" attributes="0"/>
+                          <Component id="lotPurchaseDateInfo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="lotReservedInfo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="139" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -477,44 +486,49 @@
                     <Property name="text" type="java.lang.String" value="Info"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lotNumberField">
+                <Component class="javax.swing.JLabel" name="lotNumberInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lot Number:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="blockNumberField">
+                <Component class="javax.swing.JLabel" name="blockNumberInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Block Number:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lotSizeField">
+                <Component class="javax.swing.JLabel" name="lotSizeInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lot Size: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lotPriceField">
+                <Component class="javax.swing.JLabel" name="lotPriceInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lot Price:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lotStatusField">
+                <Component class="javax.swing.JLabel" name="lotStatusInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lot Status: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="SaleStartDateField">
+                <Component class="javax.swing.JLabel" name="SaleStartDateInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Sale Start Date: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="LotBuyerField">
+                <Component class="javax.swing.JLabel" name="lotBuyerInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lot Buyer: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="LotReserveeField">
+                <Component class="javax.swing.JLabel" name="lotReservedInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lot Reservee: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lotPurchaseDateInfo">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Purchase Date: "/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -522,9 +536,6 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="ReportPanel">
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReportPanelMouseClicked"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Report">
