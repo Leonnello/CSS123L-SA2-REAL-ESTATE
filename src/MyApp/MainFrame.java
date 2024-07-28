@@ -852,7 +852,7 @@ private void openStatusSpecificDialog(Lot lotObject) {
         ArrayList<Lot> lots = blockNumber.getLots();
         for (int i=0; i<lots.size(); i++) {
             if (lots.get(i).getLotNumber() == lotNumber) {
-                lots.remove(i);
+                blockNumber.deleteLot(lots.get(i));
             }
         }
 
